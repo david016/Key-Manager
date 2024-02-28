@@ -1,0 +1,115 @@
+<nav
+  class="navbar-default navbar navbar-horizontal navbar-expand-lg navbar-dark bg-default"
+>
+  <div class="container">
+    <h1 class="navbar-brand">Key manager</h1>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar-default"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="">
+      <ul class="navbar-nav ml-lg-auto">
+        <li class="nav-item" *ngIf="isLoggedIn" routerLinkActive="active">
+          <a class="nav-link nav-link-icon" routerLink="/dashboard">
+            <span class="nav-link-inner--text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn" routerLinkActive="active">
+          <a class="nav-link nav-link-icon" routerLink="/api-keys">
+            <span class="nav-link-inner--text">API keys</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn" routerLinkActive="active">
+          <a class="nav-link nav-link-icon" routerLink="/licence-keys">
+            <span class="nav-link-inner--text">Licence keys</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isLoggedIn">
+          <a
+            class="nav-link nav-link-icon"
+            href="#"
+            id="navbar-default_dropdown_1"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="ni ni-single-02"></i>
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            aria-labelledby="navbar-default_dropdown_1"
+          >
+            <a class="dropdown-item" routerLink="/user">Profile</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </div>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a
+            class="nav-link nav-link-icon"
+            routerLink="/auth"
+            *ngIf="!isLoggedIn"
+          >
+            <span class="nav-link-inner--text">Login</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="collapse navbar-collapse" id="navbar-default">
+  <div class="">
+    <button
+      *ngIf="isLoggedIn"
+      class="btn btn-link btn-block border-bottom m-0"
+      routerLink="/user"
+    >
+      Profile
+    </button>
+    <button
+      *ngIf="isLoggedIn"
+      class="btn btn-link btn-block border-bottom m-0"
+      routerLink="/dashboard"
+    >
+      Dashboard
+    </button>
+    <button
+      *ngIf="isLoggedIn"
+      class="btn btn-link btn-block border-bottom m-0"
+      routerLink="/api-keys"
+    >
+      API keys
+    </button>
+    <button
+      *ngIf="isLoggedIn"
+      class="btn btn-link btn-block border-bottom m-0"
+      routerLink="/licence-keys"
+    >
+      Licence keys
+    </button>
+    <button
+      class="btn btn-link btn-block m-0"
+      routerLink="/auth"
+      *ngIf="!isLoggedIn"
+    >
+      Login
+    </button>
+    <button
+      class="btn btn-link btn-block m-0"
+      routerLink="/auth"
+      *ngIf="isLoggedIn"
+    >
+      Logout
+    </button>
+  </div>
+</div>

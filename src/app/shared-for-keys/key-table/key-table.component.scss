@@ -1,0 +1,57 @@
+.modal-backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999; 
+  }
+  
+  app-key-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 400px;
+    z-index: 10000;  /* above the backdrop */
+  }
+
+  .table-responsive {
+    display: block;
+    overflow-x: auto;
+  }
+
+
+  .api-key-row {
+    display: grid;
+    grid-template-columns: 0.5fr 0.7fr 1fr 0.333fr;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .licence-key-row {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.4fr 0.4fr;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .grid-table-header {
+    background-color: #f8f9fa;
+  }
+  
+  .grid-table-header div{
+    padding: 0.5rem 1rem;
+    text-align: left;
+  }
+  
+  .action-column {
+    display: flex;
+    align-items: center;
+  }
+  
+
+  .card-header{
+    text-align: center;
+  }

@@ -1,0 +1,57 @@
+<div class="container mt-5 d-flex flex-column">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h2 class="mb-0">
+            {{ type === KeyType.apiKey ? "API Keys" : "Licence Keys" }}
+          </h2>
+        </div>
+        <div class="table-responsive grid-table">
+          <div
+            class="grid-table-header"
+            [ngClass]="{
+              'api-key-row': type === KeyType.apiKey,
+              'licence-key-row': type === KeyType.licenceKey
+            }"
+          >
+            <div>Name</div>
+            <div>Key</div>
+            <div>Description</div>
+            <div *ngIf="type === KeyType.licenceKey">Expiration</div>
+            <div></div>
+          </div>
+          <div *ngFor="let key of getKeysToDisplay()">
+            <app-key-item
+              [type]="type"
+              [key]="key"
+              (editEvent)="onEdit(key, key.id)"
+            ></app-key-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-pagination
+    *ngIf="userKeys"
+    [keysPerPage]="keysPerPage"
+    [countOfKeys]="userKeys.length"
+    (pageChanged)="onPageChanged($event)"
+  ></app-pagination>
+  <div class="button mt-auto text-center">
+    <button type="button" class="btn btn-outline-default" (click)="onAddNew()">
+      Add new key
+    </button>
+  </div>
+</div>
+
+<!-- Modal for formMode -->
+<div class="modal-backdrop" *ngIf="formMode">
+  <app-key-form
+    [type]="type"
+    *ngIf="formMode"
+    [selectedKey]="selectedKey"
+    (closeFormEvent)="formMode = false"
+  >
+  </app-key-form>
+</div>

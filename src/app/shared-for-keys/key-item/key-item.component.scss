@@ -1,0 +1,45 @@
+.monospace {
+  font-family: 'Consolas', monospace;
+}
+
+.action-column {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.btn-actions::after {
+  content: '...';
+  display: inline-block;
+}
+
+.btn-actions::after {
+  content: '...';
+  display: inline-block;
+  border: none;
+}
+
+.grid-table-row:hover {
+  background-color: #f1f1f1;
+}
+
+.api-key-row {
+  display: grid;
+  grid-template-columns: 0.5fr 0.7fr 1fr 0.333fr;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.licence-key-row {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 0.4fr 0.4fr;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.grid-table-row div {
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.row-container > div {
+  display: flex;
+  align-items: center;
+}

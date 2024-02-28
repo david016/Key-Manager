@@ -1,0 +1,67 @@
+<div *ngIf="isLoading" class="spinner-container">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="container" *ngIf="!isLoading">
+  <div class="row mb-4">
+    <div class="col">
+      <h1>Dashboard</h1>
+      <p>Welcome, manage and monitor your API and Licence keys efficiently.</p>
+    </div>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Total API Keys</h5>
+          <p class="card-text">{{ apiKeys?.length }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Total Licence Keys</h5>
+          <p class="card-text">{{ licenceKeys?.length }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Next Key To Expire</h5>
+          <p class="card-text" *ngIf="nextKeyToExpire">
+            {{ nextKeyToExpire.name }},
+            {{ nextKeyToExpire.expireAt | date : "shortDate" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="row mb-4">
+    <div class="col">
+      <app-bar-chart
+        *ngIf="apiKeys && licenceKeys"
+        [apiKeys]="apiKeys"
+        [licenceKeys]="licenceKeys"
+        [nameOfChart]="'Keys created for the last week'"
+        [type]="'created'"
+        [numberOfDays]="7"
+      ></app-bar-chart>
+    </div>
+    <div class="col">
+      <app-bar-chart
+        *ngIf="licenceKeys"
+        [licenceKeys]="licenceKeys"
+        [nameOfChart]="'Licence keys about to expire'"
+        [type]="'expire'"
+        [numberOfDays]="30"
+      ></app-bar-chart>
+    </div>
+  </div>
+</div>

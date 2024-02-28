@@ -1,0 +1,29 @@
+<div
+  class="row-container grid-table-row"
+  [ngClass]="{
+    'api-key-row': type === KeyType.apiKey,
+    'licence-key-row': type === KeyType.licenceKey
+  }"
+>
+  <div>{{ key.name }}</div>
+  <div class="monospace">{{ key.key }}</div>
+  <div>{{ key.description }}</div>
+  <div *ngIf="type === KeyType.licenceKey">
+    {{ formatDate(key.expirationDate || key.expireAt) }}
+  </div>
+  <div class="action-column">
+    <div class="btn-group">
+      <button
+        type="button"
+        class="btn dropdown-toggle btn-actions btn-sm no-arrow"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      ></button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" (click)="onEdit(key)">Edit</a>
+        <a class="dropdown-item" (click)="onDelete()">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>

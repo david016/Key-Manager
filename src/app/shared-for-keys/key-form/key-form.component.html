@@ -1,0 +1,58 @@
+<div class="container main">
+  <form (ngSubmit)="onSubmit()" [formGroup]="keyForm">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Add new API key</h5>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+        <div class="row">
+          <label for="name">Name: </label>
+        </div>
+        <div class="row">
+          <input type="text" id="name" name="name" formControlName="name" />
+        </div>
+        <div class="row">
+          <label for="key">Key: </label>
+        </div>
+        <div class="row">
+          <input
+            type="text"
+            id="key"
+            formControlName="key"
+            [value]="generatedKey"
+            name="key"
+            disabled
+          />
+          <button
+            type="button"
+            (click)="onGenerateKey()"
+            class="btn btn-sm btn-outline-default key"
+          >
+            Get key
+          </button>
+        </div>
+        <div class="row">
+          <label for="description">Description: </label>
+        </div>
+        <div class="row">
+          <textarea
+            name="description"
+            id="description"
+            formControlName="description"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-danger"
+        data-dismiss="modal"
+        (click)="onCloseModal()"
+      >
+        Close
+      </button>
+      <button type="submit" class="btn btn-default">Save changes</button>
+    </div>
+  </form>
+</div>

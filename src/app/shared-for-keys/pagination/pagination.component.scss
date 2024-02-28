@@ -1,0 +1,14 @@
+@import '../../../variables.scss';
+
+li {
+    cursor: pointer;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: $main-color; 
+    border-color: #172b4d;
+}
+
+.pagination .page-item.active .page-link:hover {
+    color: #fff;
+}

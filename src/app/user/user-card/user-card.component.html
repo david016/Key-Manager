@@ -1,0 +1,39 @@
+<div class="card card-profile shadow">
+  <div class="row justify-content-center">
+    <div class="col-lg-3 order-lg-2">
+      <div class="card-profile-image custom-profile-image">
+        <img src="../../../assets/img/unnamed.jpg" class="rounded-circle" />
+      </div>
+    </div>
+  </div>
+  <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+    <div class="d-flex justify-content-between"></div>
+  </div>
+  <div class="card-body pt-0 pt-md-4">
+    <div class="text-center user-info">
+      <h3>
+        {{ user.name || "Tommy" }} {{ user.surname || "Wiseau"
+        }}<span class="font-weight-light">, {{ user.age || 27 }}</span>
+      </h3>
+      <div class="h5 font-weight-300">
+        <i class="ni location_pin mr-2"></i>{{ user.city || "San Francisco" }},
+        {{ user.country || "USA" }}
+      </div>
+      <div class="h5 mt-4">
+        <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative
+        Tim Officer
+      </div>
+      <div>
+        <i class="ni education_hat mr-2"></i>University of Computer Science
+      </div>
+      <hr class="my-4" />
+      <p>
+        {{
+          user.aboutMe ||
+            "If a lot of people love each other, the world would be a better place to live."
+        }}
+      </p>
+      <a routerLink="">Show more</a>
+    </div>
+  </div>
+</div>
